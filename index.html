@@ -63,12 +63,26 @@ body{line-height:1.85;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-
 .portfolio .photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .25s ease}
 .portfolio .photo:hover img{transform:scale(1.035)}
 @media(prefers-reduced-motion:reduce){.portfolio .photo img{transition:none}.portfolio .photo:hover img{transform:none}}
+/* Google 회원 로그인 UI */
+.auth-area{display:flex;align-items:center;flex-shrink:0}
+.google-login{display:inline-flex;gap:9px;align-items:center;justify-content:center;min-height:44px;padding:8px 13px;border:1px solid #dadce0;border-radius:12px;background:#fff;color:#27354b;font-size:.88rem;font-weight:750;white-space:nowrap}
+.google-login[hidden]{display:none}.google-login:hover{background:#f5f8ff;border-color:#a4b8da}
+.google-g{display:grid;place-items:center;font-family:Arial,sans-serif;font-size:1.3rem;font-weight:800;color:#4285f4}
+.user-account{display:flex;align-items:center;gap:9px;max-width:300px}.user-account[hidden]{display:none}
+.user-avatar{width:32px;height:32px;border-radius:50%;object-fit:cover;background:#eaf2ff}
+.user-name{font-size:.87rem;font-weight:750;color:#172b50;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:105px}
+.logout-btn{background:#eff4fc;color:#1c4b91;border:1px solid #d7e4f5;border-radius:10px;padding:7px 11px;font-size:.82rem;font-weight:750;white-space:nowrap}
+.auth-notice{position:fixed;top:95px;right:18px;z-index:200;max-width:min(400px,calc(100vw - 36px));background:#fff;border:1px solid #ccd8e7;border-left:4px solid #2563eb;box-shadow:0 10px 35px #081b432e;border-radius:11px;padding:12px 17px;color:#172033;font-size:.9rem;display:none}
+.auth-notice.show{display:block}
+@media(min-width:768px) and (max-width:1100px){.auth-area{max-width:100%}}
+@media(max-width:767px){.auth-area,.google-login,.user-account{width:100%}.user-account{justify-content:flex-start;max-width:none}.user-name{max-width:unset;flex:1}.auth-notice{top:83px}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"김유성","alternateName":"친절한유성쌤","jobTitle":"AI리터러시 강사","description":"생성형 AI, AI리터러시, AI 콘텐츠 제작 및 AI 업무혁신 교육 강사","email":"mailto:kyseong3@naver.com","telephone":"+82-10-2781-9669","sameAs":["https://blog.naver.com/mindlemedia","https://www.youtube.com/c/kyseong3"]}</script>
 </head>
 <body>
 <a class="skip" href="#main">본문 바로가기</a>
-<header class="site-header"><nav class="nav container" aria-label="주 메뉴"><a class="logo" href="#home"><span class="logo-mark" aria-hidden="true">AI</span><span>친절한유성쌤<small>김유성 · AI리터러시 전문 강사</small></span></a><button id="menuToggle" class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navLinks">☰</button><div id="navLinks" class="nav-links"><a href="#about">강사 소개</a><a href="#expertise">전문 분야</a><a href="#programs">교육 프로그램</a><a href="#portfolio">강의 사례</a><a href="#faq">FAQ</a><a class="btn primary" href="#contact">강의 문의하기 ↗</a></div></nav></header>
+<header class="site-header"><nav class="nav container" aria-label="주 메뉴"><a class="logo" href="#home"><span class="logo-mark" aria-hidden="true">AI</span><span>친절한유성쌤<small>김유성 · AI리터러시 전문 강사</small></span></a><button id="menuToggle" class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navLinks">☰</button><div id="navLinks" class="nav-links"><a href="#about">강사 소개</a><a href="#expertise">전문 분야</a><a href="#programs">교육 프로그램</a><a href="#portfolio">강의 사례</a><a href="#faq">FAQ</a><a class="btn primary" href="#contact">강의 문의하기 ↗</a><div class="auth-area"><button id="googleLoginBtn" class="google-login" type="button"><span class="google-g" aria-hidden="true">G</span><span>Google 로그인</span></button><div id="userAccount" class="user-account" hidden><img id="userAvatar" class="user-avatar" alt="" referrerpolicy="no-referrer" hidden><span id="userName" class="user-name"></span><button id="logoutBtn" class="logout-btn" type="button">로그아웃</button></div></div></div></nav></header>
+<div id="authNotice" class="auth-notice" role="status" aria-live="polite"></div>
 <main id="main">
 <section id="home" class="hero"><div class="container hero-grid"><div><div class="eyebrow">AI LITERACY · PRACTICAL EDUCATION</div><h1>AI 시대, 배움의 변화를 이끄는 <span class="gradient-text">AI리터러시 전문 강사</span></h1><p class="hero-lead">AI를 이해하고, 활용하고, 새로운 가능성을 만들어가는 실습 중심 교육. <strong>AI를 이해하는 것을 넘어, 현장에서 활용하는 교육</strong>을 지향합니다.</p><div class="chips"><span class="chip">생성형 AI</span><span class="chip">AI리터러시</span><span class="chip">AI윤리</span><span class="chip">AI 콘텐츠</span><span class="chip">업무혁신</span></div><div class="hero-actions"><a class="btn light" href="#about">강사 소개 보기 →</a><a class="btn ghost" href="#programs">교육 프로그램 보기</a><a class="btn ghost" href="#contact">강의 문의하기</a></div></div><div class="hero-visual" aria-label="김유성 강사 프로필 사진 등록 영역"><div class="profile-placeholder"><div class="avatar" aria-hidden="true">👨‍🏫</div><h3>김유성 강사</h3><p>AI콘텐츠마케팅연구소 유쌤클래스</p></div><div class="glass-note">실제 프로필 사진 URL 등록 시 교체 · 현재는 임시 그래픽</div></div></div></section>
 <div class="container stats" aria-label="핵심 교육 정보"><div class="stat"><strong>7년</strong><span>강의 경력 · 제공 정보 기준</span></div><div class="stat"><strong>전 세대 맞춤</strong><span>학생부터 시니어까지</span></div><div class="stat"><strong>실습 중심</strong><span>현장에서 적용하는 참여형 교육</span></div></div>
@@ -85,6 +99,7 @@ body{line-height:1.85;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-
 <button class="top" id="backTop" aria-label="맨위로 이동" title="맨위로 이동" type="button"><span aria-hidden="true" class="top-arrow">↑</span><span>맨위</span></button>
 <dialog class="modal" id="galleryDialog" aria-labelledby="galleryTitle"><div class="modal-content"><button class="modal-close" id="galleryClose" type="button" aria-label="닫기">✕</button><h3 class="modal-title" id="galleryTitle">갤러리</h3><div class="photo-large"><div><div style="font-size:3rem" aria-hidden="true">▧</div><strong>등록된 실제 사진이 없습니다.</strong><span>사진 추가 시 실제 이미지 확대 표시</span></div></div><p id="galleryCaption" class="muted"></p></div></dialog>
 <dialog class="modal" id="privacyDialog" aria-labelledby="privacyTitle"><div class="modal-content"><button class="modal-close" id="privacyClose" type="button" aria-label="닫기">✕</button><h3 class="modal-title" id="privacyTitle">개인정보 안내 (폼 연동 전)</h3><p>현재 페이지는 별도의 서버를 운영하지 않으며, 입력한 문의 내용을 서버에 저장하거나 자동 전송하지 않습니다. 사용자가 문의 버튼을 누르면 기기에서 이메일 프로그램을 열어 입력 내용을 메일 본문으로 전달합니다.</p><p>메일을 실제로 발송하는 경우 수신처는 <strong>kyseong3@naver.com</strong>이며, 문의 회신을 목적으로 작성 내용이 전송됩니다. 정식 온라인 접수 시스템을 도입하기 전에는 해당 서비스에 적합한 개인정보 처리방침, 보유기간, 파기 절차, 담당자 정보를 확인하여 별도 게시해야 합니다.</p><p class="subnote">이 안내는 정식 개인정보 처리방침의 대체물이 아닙니다.</p></div></dialog>
+<!-- Firebase 설정은 파일 하단 Google 로그인 모듈에서 입력합니다. -->
 <script>
 'use strict';
 // 교육 카드와 프로그램, 포트폴리오는 아래 데이터만 수정하면 됩니다.
@@ -116,5 +131,81 @@ const privacyDialog=document.getElementById('privacyDialog');['openPrivacy','foo
 const menu=document.getElementById('menuToggle'),links=document.getElementById('navLinks');function closeMenu(){links.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','메뉴 열기');menu.textContent='☰'}menu.addEventListener('click',()=>{const open=!links.classList.contains('open');links.classList.toggle('open',open);menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'메뉴 닫기':'메뉴 열기');menu.textContent=open?'✕':'☰'});links.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
 const backTop=document.getElementById('backTop');function onScroll(){backTop.classList.toggle('visible',scrollY>450)}addEventListener('scroll',onScroll,{passive:true});onScroll();backTop.addEventListener('click',()=>scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));document.getElementById('year').textContent=new Date().getFullYear();
 const form=document.getElementById('contactForm');form.addEventListener('submit',e=>{e.preventDefault();let first=null;const fields=['org','person','email','phone','audience','topic','date','count','mode','message'];fields.forEach(id=>{const input=document.getElementById(id),out=document.getElementById(id+'Error');let msg='';const v=input.value.trim();if(input.required&&!v)msg='필수 입력 항목입니다.';else if(id==='email'&&v&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))msg='올바른 이메일 주소를 입력해 주세요.';else if(id==='phone'&&v&&!/^[0-9+()\-\s]{8,30}$/.test(v))msg='연락처 형식을 확인해 주세요.';else if(id==='count'&&v&&(!Number.isInteger(Number(v))||Number(v)<1||Number(v)>100000))msg='인원은 1명 이상으로 입력해 주세요.';out.textContent=msg;input.setAttribute('aria-invalid',String(Boolean(msg)));if(msg&&!first)first=input});const agree=document.getElementById('agree');document.getElementById('agreeError').textContent=agree.checked?'':'개인정보 이용 안내에 동의해 주세요.';if(!agree.checked&&!first)first=agree;const status=document.getElementById('formMessage');if(first){status.textContent='입력값을 확인해 주세요. 이메일은 아직 발송되지 않았습니다.';status.classList.add('show');first.focus();return;}status.classList.remove('show');const f=new FormData(form);const body=['[AI 강의 문의]','',...fields.map(k=>({org:'기관명',person:'담당자',email:'회신 이메일',phone:'연락처',audience:'교육 대상',topic:'희망 교육 주제',date:'희망 교육 일자',count:'교육 인원',mode:'교육 방식',message:'문의 내용'}[k])+': '+(f.get(k)||'미입력'))].join('\n');const mailto='mailto:kyseong3@naver.com?subject='+encodeURIComponent('[강의 문의] '+f.get('org')+' - '+f.get('topic'))+'&body='+encodeURIComponent(body);status.textContent='이메일 작성 창을 열도록 요청했습니다. 메일 앱이 열리지 않으면 이메일 주소를 복사하여 직접 보내주세요. 전송은 아직 완료되지 않았습니다.';status.classList.add('show');window.location.href=mailto;});
+</script>
+
+<!-- Google 로그인: Firebase Authentication (기존 홈페이지 기능과 독립적으로 동작) -->
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js';
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, setPersistence, browserLocalPersistence } from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js';
+
+// Firebase 프로젝트 yussamclass-homepage 연결 완료.
+// 이 설정값은 공개 웹 앱 식별정보입니다. 서비스 계정 비밀키나 관리자 키를 넣지 마세요.
+const firebaseConfig = {
+  apiKey: 'AIzaSyDwTrKIK-hsFzMxabYx3HOuoseg_jVC6w',
+  authDomain: 'yussamclass-homepage.firebaseapp.com',
+  projectId: 'yussamclass-homepage',
+  storageBucket: 'yussamclass-homepage.firebasestorage.app',
+  messagingSenderId: '951709154789',
+  appId: '1:951709154789:web:8f64df40ec1bcf9909430c',
+  measurementId: 'G-12FX5JZBR3'
+};
+
+const loginBtn = document.getElementById('googleLoginBtn');
+const logoutBtn = document.getElementById('logoutBtn');
+const accountEl = document.getElementById('userAccount');
+const avatarEl = document.getElementById('userAvatar');
+const nameEl = document.getElementById('userName');
+const noticeEl = document.getElementById('authNotice');
+function notify(message) {
+  noticeEl.textContent = message;
+  noticeEl.classList.add('show');
+}
+function updateUser(user) {
+  loginBtn.hidden = Boolean(user);
+  accountEl.hidden = !user;
+  if (!user) { nameEl.textContent = ''; avatarEl.hidden = true; avatarEl.removeAttribute('src'); return; }
+  nameEl.textContent = user.displayName || user.email || '회원';
+  if (user.photoURL && /^https:\/\//.test(user.photoURL)) {
+    avatarEl.src = user.photoURL;
+    avatarEl.hidden = false;
+  } else { avatarEl.hidden = true; avatarEl.removeAttribute('src'); }
+}
+const configured = Boolean(firebaseConfig.apiKey && firebaseConfig.authDomain && firebaseConfig.projectId && firebaseConfig.appId);
+if (!configured) {
+  loginBtn.addEventListener('click', () => notify('Google 로그인을 사용하려면 Firebase 프로젝트 설정값을 먼저 입력해야 합니다.'));
+} else {
+  try {
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
+    setPersistence(auth, browserLocalPersistence).catch(console.error);
+    onAuthStateChanged(auth, user => { updateUser(user); if (user) noticeEl.classList.remove('show'); }, () => notify('로그인 상태를 확인하지 못했습니다. 페이지를 다시 열어주세요.'));
+    loginBtn.addEventListener('click', async () => {
+      loginBtn.disabled = true;
+      noticeEl.classList.remove('show');
+      try {
+        await signInWithPopup(auth, provider);
+      } catch (error) {
+        if (error.code !== 'auth/popup-closed-by-user' && error.code !== 'auth/cancelled-popup-request') {
+          const messages = {
+            'auth/unauthorized-domain': '현재 홈페이지 주소를 Firebase Authentication의 승인된 도메인에 등록해 주세요.',
+            'auth/operation-not-allowed': 'Firebase Authentication에서 Google 로그인 제공업체를 활성화해 주세요.',
+            'auth/popup-blocked': '팝업 차단을 해제한 후 다시 로그인해 주세요.',
+            'auth/network-request-failed': '인터넷 연결을 확인한 뒤 다시 시도해 주세요.'
+          };
+          notify(messages[error.code] || 'Google 로그인에 실패했습니다. Firebase 설정과 승인된 도메인을 확인해 주세요.');
+          console.error('Firebase sign-in error:', error.code);
+        }
+      } finally { loginBtn.disabled = false; }
+    });
+    logoutBtn.addEventListener('click', async () => {
+      logoutBtn.disabled = true;
+      try { await signOut(auth); notify('로그아웃되었습니다.'); }
+      catch (error) { notify('로그아웃하지 못했습니다. 다시 시도해 주세요.'); console.error(error); }
+      finally { logoutBtn.disabled = false; }
+    });
+  } catch(error) { notify('Firebase 초기화에 실패했습니다. 설정값을 확인해 주세요.'); console.error(error); }
+}
 </script>
 </body></html>
